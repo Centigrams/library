@@ -1,0 +1,91 @@
+/* color scheme:
+#0b0c10
+#1f2833
+#c5c6c7
+#66fcf1
+#45a29e 
+*/
+
+* {
+    font-family: sans-serif;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    background-color: #0b0c10;
+}
+
+h1 {
+    margin-left: 40px;
+    flex: 1;
+    font-size: 40px;
+    color: #66FCF1;
+}
+
+.side-panel {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 50px;
+    height: 1000px;
+    width: 250px;
+    background-color: #C5C6C7;
+    left: 0;
+    z-index: -1;
+}
+
+.book-form {
+    position: relative;
+    top: 20px;
+    height: 300px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+button {
+    font-family: sans-serif;;
+}
+
+.book-input {
+    border: none;
+    border-radius: 0.5em;
+    height: 20px;
+    margin-top: 3px;
+}
+
+.add-cancel {
+    width: 80px;
+    padding: 5px;
+    font-family: sans-serif;
+    border: none;
+    border-radius: 2em;
+}
+
+.add-cancel-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 15px;
+}
+
+#add-book {
+    margin-right: 15px;
+    background-color: #66FCF1;
+
+}
+
+body {
+    background-color: #45A29E;
+}
+
+
