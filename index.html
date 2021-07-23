@@ -1,15 +1,48 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Library</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
 
-<script src="script.js" rel="script"></script>
+<body>
+    <header>
+        <div class="topbar">
+            <h1> The Booklist</h1>
+        </div>
+    </header>
+
+    <div class="side-panel">
+        <form class="book-form">
+            <label for="title">
+                Title<input id="title" name="title" type="text" class="book-input" required>
+            </label>
+
+            <label for="author">
+                Author <input id="author" name="author" type="text" class="book-input">
+            </label>
+
+            <label for="pages">
+                Total pages <input id="pages" name="pages" type="number" class="book-input">
+            </label>
+
+            <label for="checkbox">
+                Already read <input id="checkbox" name="checkbox" type="checkbox">
+            </label>
+
+            <div class="add-cancel-container">
+                <button type="button" class="add-cancel" id="add-book">Add book</button>
+                <button type="button" class="add-cancel" id="cancel-book">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js" rel="script"></script>
 </body>
+
 </html>
