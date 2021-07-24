@@ -35,9 +35,19 @@
                 <span class="focus-border"></span>
             </div>
 
-            <label for="checkbox" id="already-read">
-                Already read <input id="checkbox" name="checkbox" type="checkbox">
-            </label>
+            <!-- Switch -->
+            <div class="status-container">
+                <div class="container">
+                    <label class="switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+                <div id="read-status">
+                    <p>Not yet read</p>
+                </div>
+            </div>
+            <!-- Switch -->
 
             <div class="add-cancel-container">
                 <button type="button" class="add-cancel" id="add-book">Add book</button>
