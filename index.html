@@ -13,25 +13,29 @@
 <body>
     <header>
         <div class="topbar">
-            <h1> The Booklist</h1>
+            <h1>Booklist <sup>+</sup></h1>
         </div>
     </header>
 
     <div class="side-panel">
         <form class="book-form">
-            <label for="title">
-                Title<input id="title" name="title" type="text" class="book-input" required>
-            </label>
+            <div class="col-3 input-effect">
+                <input class="effect-16" type="text" placeholder="" id="title">
+                <label for="title">Title</label>
+                <span class="focus-border"></span>
+            </div>
+            <div class="col-3 input-effect">
+                <input class="effect-16" type="text" placeholder="" id="author">
+                <label for="author">Author</label>
+                <span class="focus-border"></span>
+            </div>
+            <div class="col-3 input-effect">
+                <input class="effect-16" type="text" placeholder="" id="pages">
+                <label for="pages">Total pages</label>
+                <span class="focus-border"></span>
+            </div>
 
-            <label for="author">
-                Author <input id="author" name="author" type="text" class="book-input">
-            </label>
-
-            <label for="pages">
-                Total pages <input id="pages" name="pages" type="number" class="book-input">
-            </label>
-
-            <label for="checkbox">
+            <label for="checkbox" id="already-read">
                 Already read <input id="checkbox" name="checkbox" type="checkbox">
             </label>
 
