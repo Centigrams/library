@@ -63,7 +63,7 @@ h1 {
     position: relative;
 }
 
-input[type="text"] {
+input {
     font: 15px/24px Arial, sans-serif;
     color: #66FCF1;
     width: 160px;
@@ -97,16 +97,17 @@ input[type="text"] {
     position: absolute;
     left: 0;
     width: 160px;
-    top: 9px;
-    color: #c5c6c7;
+    top: -16px;
+    color: #66FCF1;
     transition: 0.3s;
     z-index: -1;
     letter-spacing: 1px;
+    font-size: 12px;
 }
 
 .effect-16:focus ~ label, .has-content.effect-16 ~ label {
     top: -16px;
-    font-size: 12px;
+    font-size: 16px;
     color:  #66FCF1;
     transition: 0.3s;
 }
