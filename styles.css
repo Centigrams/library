@@ -52,12 +52,6 @@ h1 {
     justify-content: space-between;
     margin-top: 15px;
 }
-/*.book-input {*/
-/*    border: none;*/
-/*    border-radius: 0.5em;*/
-/*    height: 20px;*/
-/*    margin-top: 3px;*/
-/*}*/
 
 :focus {
     outline: none;
@@ -71,7 +65,7 @@ h1 {
 
 input[type="text"] {
     font: 15px/24px Arial, sans-serif;
-    color: #333;
+    color: #66FCF1;
     width: 160px;
     box-sizing: border-box;
     letter-spacing: 1px;
@@ -101,13 +95,13 @@ input[type="text"] {
 
 .effect-16 ~ label {
     position: absolute;
-    /*left: 0;*/
+    left: 0;
     width: 160px;
     top: 9px;
-    color: #c5c7c7;
+    color: #c5c6c7;
     transition: 0.3s;
     z-index: -1;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 
 .effect-16:focus ~ label, .has-content.effect-16 ~ label {
@@ -144,5 +138,3 @@ input[type="text"] {
 body {
     background-color: #0b0c10;
 }
-
-
