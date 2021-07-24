@@ -123,6 +123,7 @@ h1 {
     font-family: sans-serif;
     border: none;
     border-radius: 2em;
+    cursor: pointer;
 }
 
 .add-cancel-container {
