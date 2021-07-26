@@ -194,36 +194,43 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
-/* Todo */
-.booklist-container {
-    z-index: -2;
-    display: flex;
+body {
+    background-color: #0b0c10;
+}
+
+
+table {
     justify-content: center;
     align-items: center;
     margin-top: 8em;
     margin-left: 25em;
     width: 70%;
     height: 100%;
+    color: whitesmoke;
 }
 
 @media screen and (max-width: 1366px) {
-    .booklist-container {
+    table {
         margin-left: 20em;
     }
 }
 
-.booklist {
-    background-color: #45a29e;
-    height: 100%;
-    width: 100%;
+thead th {
+  font-weight: 700;
+  background: #45a29e;
+  color: black;
 }
 
-.list-header {
-    background-color: #45a29e;
-    display: table-header-group;
+tr {
+  background: #272f3f;
 }
 
-body {
-    background-color: #0b0c10;
+tr:nth-child(even) {
+  background-color: #1f2833;
 }
 
+th, td {
+  text-align: left;
+  padding: 20px;
+  font-weight: 300;
+}
