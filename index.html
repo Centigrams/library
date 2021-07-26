@@ -35,11 +35,11 @@
                 <span class="focus-border"></span>
             </div>
 
-            <!-- Switch -->
             <div class="status-container">
                 <div class="container">
                     <label class="switch" for="checkbox">
-                        <input type="checkbox" id="checkbox" />
+                        <input type="checkbox" id="checkbox" value="Not yet read"/>
+                        <!-- If slider is "checked", input value should be Read. -->
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -47,7 +47,6 @@
                     <p>Not yet read</p>
                 </div>
             </div>
-            <!-- Switch -->
 
             <div class="add-cancel-container">
                 <button type="button" class="add-cancel" id="add-book">Add book</button>
@@ -56,22 +55,42 @@
         </form>
     </div>
 
-    <!-- Booklist -->
+    <!-- Booklist Template -->
 
-    <main class="booklist-container">
-        <table class="booklist">
-            <thead class="list-header">
-                <tr>
-                    <td></td>
-                    <th>TITLE</th>
-                    <th>AUTHOR</th>
-                    <th>PAGES</th>
-                    <th>STATUS</th>
-                </tr>
-            </thead>
-            <tbody class="list-body"></tbody>
-        </table>
-    </main>
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>TITLE</th>
+                <th>AUTHOR</th>
+                <th>PAGES</th>
+                <th>STATUS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Button</td>
+                <td>Data Structures and Algorithms in Java</td>
+                <td>Goodrich and Tamassia</td>
+                <td>924</td>
+                <td>Read</td>
+            </tr>
+            <tr>
+                <td>Button</td>
+                <td>Investment Banking: Valuation, Leveraged Buyouts, and Mergers and Acquisitions</td>
+                <td>Pearl and Rosenbaum</td>
+                <td>272</td>
+                <td>Read</td>
+            </tr>
+            <tr>
+                <td>Button</td>
+                <td>To Kill a Mockingbird</td>
+                <td>Harper Lee</td>
+                <td>281</td>
+                <td>Not yet read</td>
+            </tr>
+        </tbody>
+    </table>
 
     <script src="script.js" rel="script"></script>
 </body>
