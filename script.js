@@ -77,16 +77,28 @@ function displayBooks() {
     }
 }
 
-const addBook = document.querySelector('#add-book');
-const bookTitle = document.querySelector('#title');
-const bookAuthor = document.querySelector('#author');
-const bookPages = document.querySelector('#pages');
+const bookForm = document.querySelector('.book-form');
+
+const bookTitleInput = document.querySelector('#title');
+const bookAuthorInput = document.querySelector('#author');
+const bookPagesInput = document.querySelector('#pages');
+
 const checkBox = document.querySelector('#checkbox');
 
+const addBook = document.querySelector('#add-book');
+const cancelButton = document.querySelector('#cancel-book');
+
+
 addBook.addEventListener('click', addBookInput);
-checkBox.addEventListener('click', changeMessage);
+checkBox.addEventListener('click', changeStatusMessage);
+cancelButton.addEventListener('click', () => bookForm.reset());
 
 function addBookInput() {
+    //If all inputs are missing, don't do anything
+    if (bookTitleInput.value === "") return;
+    if (bookAuthorInput.value === "") bookAuthorInput.value = 'n/a';
+    if (bookPagesInput.value === "" || bookPagesInput.value === 0) bookPagesInput.value = 0;
+
     function bookStatus() {
         if (checkBox.checked === true) {
             return 'Read'
@@ -94,11 +106,11 @@ function addBookInput() {
             return 'Not yet read';
         }
     }
-    addBookToLibrary(bookTitle.value, bookAuthor.value, bookPages.value, bookStatus());
+    addBookToLibrary(bookTitleInput.value, bookAuthorInput.value, bookPagesInput.value, bookStatus());
+    bookForm.reset();
 }
 
-
-function changeMessage() {
+function changeStatusMessage() {
     const readStatusMessage = document.querySelector('#read-status-message');
     if (checkBox.checked === true) {
         readStatusMessage.textContent = 'Read';
