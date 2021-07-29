@@ -133,6 +133,10 @@ h1 {
     background-color: #66FCF1;
 }
 
+#cancel-book {
+    background-color: #C5C6C7;
+}
+
 #read-status {
     color: #c5c6c7;
     margin-left: 15px;
