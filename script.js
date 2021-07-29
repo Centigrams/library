@@ -50,7 +50,7 @@ function displayBooks() {
 
         function addDeleteButton() {
             const button = document.createElement('img');
-            button.src = "Images/edit-button.png";
+            button.src = "Images/delete-button.png";
             deleteButton.appendChild(button);
             button.classList.add('delete-button');
         }
