@@ -43,9 +43,24 @@ function displayBooks() {
         const tableRow = document.createElement('tr');
         tableBody.appendChild(tableRow);
 
-        // Image
+        // Delete Button
+        const deleteButton = document.createElement('td');
+        tableRow.appendChild(deleteButton);
+        deleteButton.classList.add('delete-button-cell');
+
+        function addDeleteButton() {
+            const button = document.createElement('img');
+            button.src = "Images/edit-button.png";
+            deleteButton.appendChild(button);
+            button.classList.add('delete-button');
+        }
+
+        addDeleteButton();
+
+        // Edit Button
         const editButton = document.createElement('td');
         tableRow.appendChild(editButton);
+        editButton.classList.add('edit-button-cell');
 
         function add_img() {
             const img = document.createElement('img');
@@ -59,24 +74,27 @@ function displayBooks() {
         const bookTitle = document.createElement('td');
         bookTitle.textContent = myLibrary[book].title;
         tableRow.appendChild(bookTitle);
+        bookTitle.classList.add('book-title');
 
         //Author
         const bookAuthor = document.createElement('td');
         bookAuthor.textContent = myLibrary[book].author;
         tableRow.appendChild(bookAuthor);
+        bookAuthor.classList.add('bookAuthor');
 
         //Pages
         const bookPages = document.createElement('td');
         bookPages.textContent = myLibrary[book].pages;
         tableRow.appendChild(bookPages);
+        bookPages.classList.add('book-pages');
 
         //Status
         const bookStatus = document.createElement('td');
         bookStatus.textContent = myLibrary[book].read;
         tableRow.appendChild(bookStatus);
+        bookStatus.classList.add('book-status');
     }
 }
-
 const bookForm = document.querySelector('.book-form');
 
 const bookTitleInput = document.querySelector('#title');
@@ -114,9 +132,29 @@ function changeStatusMessage() {
     const readStatusMessage = document.querySelector('#read-status-message');
     if (checkBox.checked === true) {
         readStatusMessage.textContent = 'Read';
+        readStatusMessage.setAttribute('class', 'read-status-read');
     } else {
         readStatusMessage.textContent = 'Not yet read';
+        readStatusMessage.setAttribute('class', 'read-status-not');
     }
+}
+
+const tableBody = document.querySelector('.table-body');
+tableBody.addEventListener('click', deleteBook);
+// tableBody.addEventListener('click', editBookInfo);
+
+// function editBookInfo(e) {
+//     if (!e.target.matches('.edit-button')) return;
+// }
+
+
+function deleteBook(e) {
+    if (!e.target.matches('.delete-button')) return;
+    const {target} = e;
+    const tr = target.parentNode.parentNode.rowIndex - 1;
+    myLibrary.splice(tr, 1);
+    console.log(myLibrary);
+    displayBooks();
 }
 
 displayBooks();
