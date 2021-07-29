@@ -140,6 +140,18 @@ h1 {
 #read-status {
     color: #c5c6c7;
     margin-left: 15px;
+    font-size: 1rem;
+}
+
+.read-status-read {
+    color: #66FCF1;
+    margin-left: 15px;
+    font-size: 1rem;
+}
+
+.read-status-not {
+    color: #c5c6c7;
+    font-size: 1rem;
 }
 
 .status-container {
@@ -207,7 +219,7 @@ table {
     justify-content: center;
     align-items: center;
     margin-top: 8em;
-    margin-left: 25em;
+    margin-left: 23.5em;
     width: 70%;
     height: 100%;
     color: whitesmoke;
@@ -215,7 +227,7 @@ table {
 
 @media screen and (max-width: 1366px) {
     table {
-        margin-left: 20em;
+        margin-left: 18.5em;
     }
 }
 
@@ -239,13 +251,21 @@ th, td {
   font-weight: 300;
 }
 
-.edit-button {
+.edit-button, .delete-button {
     width: 50px;
     height: 50px;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
-.edit-button:hover {
+.edit-button:hover , .delete-button:hover {
     opacity: 1;
     cursor: pointer;
+}
+
+.delete-button-header, .edit-button-header {
+    background-color: #0b0c10;
+}
+
+.delete-button-cell, .edit-button-cell {
+    background-color: #0b0c10;
 }
