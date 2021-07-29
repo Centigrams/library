@@ -264,8 +264,25 @@ th, td {
 
 .delete-button-header, .edit-button-header {
     background-color: #0b0c10;
+    width: 50px;
 }
 
 .delete-button-cell, .edit-button-cell {
     background-color: #0b0c10;
+    width: 50px;
+}
+
+@media screen and (max-width: 1366px) {
+    .delete-button-header, .edit-button-header {
+        width: 50px;
+    }
+    
+    .delete-button-cell, .edit-button-cell {
+        background-color: #0b0c10;
+        width: 50px;
+    }
+}
+
+.book-title {
+    max-width: 39.6875em;
 }
