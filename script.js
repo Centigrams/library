@@ -95,6 +95,7 @@ function displayBooks() {
         bookStatus.classList.add('book-status');
     }
 }
+
 const bookForm = document.querySelector('.book-form');
 
 const bookTitleInput = document.querySelector('#title');
@@ -108,24 +109,45 @@ const cancelButton = document.querySelector('#cancel-book');
 
 addBook.addEventListener('click', addBookInput);
 checkBox.addEventListener('click', changeStatusMessage);
-cancelButton.addEventListener('click', () => bookForm.reset());
+cancelButton.addEventListener('click', () => {
+    bookForm.reset();
+    editMode = false;
+});
+
+let editMode = false;
+let tableRowToEdit = null;
 
 function addBookInput() {
-    //If all inputs are missing, don't do anything
-    if (bookTitleInput.value === "") return;
-    if (bookAuthorInput.value === "") bookAuthorInput.value = 'n/a';
-    if (bookPagesInput.value === "" || bookPagesInput.value === 0) bookPagesInput.value = 0;
 
     function bookStatus() {
         if (checkBox.checked === true) {
+            checkBox.value = "Read";
             return 'Read'
         } else {
+            checkBox.value = "Not yet read";
             return 'Not yet read';
         }
     }
-    addBookToLibrary(bookTitleInput.value, bookAuthorInput.value, bookPagesInput.value, bookStatus());
-    bookForm.reset();
-    changeStatusMessage();
+
+    if (editMode === true) {
+        bookStatus();
+        myLibrary[tableRowToEdit].author = bookAuthorInput.value;
+        myLibrary[tableRowToEdit].title = bookTitleInput.value;
+        myLibrary[tableRowToEdit].pages = bookPagesInput.value;
+        myLibrary[tableRowToEdit].read = checkBox.value;
+        editMode = false;
+        displayBooks();
+        bookForm.reset();
+        changeStatusMessage();
+    } else {
+        //If all inputs are missing, don't do anything
+        if (bookTitleInput.value === "") return;
+        if (bookAuthorInput.value === "") bookAuthorInput.value = 'n/a';
+        if (bookPagesInput.value === "" || bookPagesInput.value === 0) bookPagesInput.value = 0;
+        addBookToLibrary(bookTitleInput.value, bookAuthorInput.value, bookPagesInput.value, bookStatus());
+        bookForm.reset();
+        changeStatusMessage();
+    }
 }
 
 function changeStatusMessage() {
@@ -144,6 +166,7 @@ tableBody.addEventListener('click', deleteBook); // Delete Button
 tableBody.addEventListener('click', editBookInfo); // Edit Button
 
 function editBookInfo(e) {
+    editMode = true;
     if (!e.target.matches('.edit-button')) return;
     const { target } = e;
     const tr = target.parentNode.parentNode.rowIndex - 1;
@@ -165,6 +188,13 @@ function editBookInfo(e) {
         }
     }
     matchBookStatusToSwitch();
+
+    /* The tableRowToEdit variable will be used when the book 
+    is in edit mode(refer to addBookInput function). It returns 
+    what row must be edited without the need to append a new   
+    row in the table.*/
+
+    tableRowToEdit = tr;
 }
 
 function deleteBook(e) {
