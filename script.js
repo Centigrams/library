@@ -62,13 +62,13 @@ function displayBooks() {
         tableRow.appendChild(editButton);
         editButton.classList.add('edit-button-cell');
 
-        function add_img() {
+        function addEditButton() {
             const img = document.createElement('img');
             img.src = 'Images/edit-button-colored.png';
             editButton.appendChild(img);
             img.classList.add('edit-button');
         }
-        add_img();
+        addEditButton();
 
         // Title
         const bookTitle = document.createElement('td');
@@ -106,7 +106,6 @@ const checkBox = document.querySelector('#checkbox');
 const addBook = document.querySelector('#add-book');
 const cancelButton = document.querySelector('#cancel-book');
 
-
 addBook.addEventListener('click', addBookInput);
 checkBox.addEventListener('click', changeStatusMessage);
 cancelButton.addEventListener('click', () => bookForm.reset());
@@ -126,6 +125,7 @@ function addBookInput() {
     }
     addBookToLibrary(bookTitleInput.value, bookAuthorInput.value, bookPagesInput.value, bookStatus());
     bookForm.reset();
+    changeStatusMessage();
 }
 
 function changeStatusMessage() {
@@ -140,36 +140,38 @@ function changeStatusMessage() {
 }
 
 const tableBody = document.querySelector('.table-body');
-tableBody.addEventListener('click', deleteBook);
-tableBody.addEventListener('click', editBookInfo);
+tableBody.addEventListener('click', deleteBook); // Delete Button
+tableBody.addEventListener('click', editBookInfo); // Edit Button
 
 function editBookInfo(e) {
     if (!e.target.matches('.edit-button')) return;
-    const {target} = e;
+    const { target } = e;
     const tr = target.parentNode.parentNode.rowIndex - 1;
     const bookTitle = myLibrary[tr].title;
     const bookAuthor = myLibrary[tr].author;
     const bookPages = myLibrary[tr].pages;
     const bookStatus = myLibrary[tr].read;
-    console.log(myLibrary[tr]);
-    console.log(bookTitle);
-    console.log(bookAuthor);
-    console.log(bookPages);
-    console.log(bookStatus);
     bookTitleInput.value = bookTitle;
     bookAuthorInput.value = bookAuthor;
     bookPagesInput.value = bookPages;
-    //? Slider should interact.
-    // checkBox.value = bookStatus;
-}
 
+    function matchBookStatusToSwitch() {
+        if (bookStatus === 'Read') {
+            checkBox.checked = true;
+            changeStatusMessage();
+        } else {
+            checkBox.checked = false;
+            changeStatusMessage();
+        }
+    }
+    matchBookStatusToSwitch();
+}
 
 function deleteBook(e) {
     if (!e.target.matches('.delete-button')) return;
-    const {target} = e;
+    const { target } = e;
     const tr = target.parentNode.parentNode.rowIndex - 1;
     myLibrary.splice(tr, 1);
-    console.log(myLibrary);
     displayBooks();
 }
 
