@@ -141,11 +141,27 @@ function changeStatusMessage() {
 
 const tableBody = document.querySelector('.table-body');
 tableBody.addEventListener('click', deleteBook);
-// tableBody.addEventListener('click', editBookInfo);
+tableBody.addEventListener('click', editBookInfo);
 
-// function editBookInfo(e) {
-//     if (!e.target.matches('.edit-button')) return;
-// }
+function editBookInfo(e) {
+    if (!e.target.matches('.edit-button')) return;
+    const {target} = e;
+    const tr = target.parentNode.parentNode.rowIndex - 1;
+    const bookTitle = myLibrary[tr].title;
+    const bookAuthor = myLibrary[tr].author;
+    const bookPages = myLibrary[tr].pages;
+    const bookStatus = myLibrary[tr].read;
+    console.log(myLibrary[tr]);
+    console.log(bookTitle);
+    console.log(bookAuthor);
+    console.log(bookPages);
+    console.log(bookStatus);
+    bookTitleInput.value = bookTitle;
+    bookAuthorInput.value = bookAuthor;
+    bookPagesInput.value = bookPages;
+    //? Slider should interact.
+    // checkBox.value = bookStatus;
+}
 
 
 function deleteBook(e) {
