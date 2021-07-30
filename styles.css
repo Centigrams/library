@@ -251,9 +251,15 @@ th, td {
   font-weight: 300;
 }
 
-.edit-button, .delete-button {
+.edit-button {
     width: 50px;
     height: 50px;
+    opacity: 0.6;
+}
+
+.delete-button {
+    width: 52px;
+    height: 52px;
     opacity: 0.6;
 }
 
