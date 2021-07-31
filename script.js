@@ -166,8 +166,8 @@ tableBody.addEventListener('click', deleteBook); // Delete Button
 tableBody.addEventListener('click', editBookInfo); // Edit Button
 
 function editBookInfo(e) {
-    editMode = true;
     if (!e.target.matches('.edit-button')) return;
+    editMode = true;
     const { target } = e;
     const tr = target.parentNode.parentNode.rowIndex - 1;
     const bookTitle = myLibrary[tr].title;
