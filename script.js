@@ -34,7 +34,14 @@ function addBookToLibrary(title, author, pages, read) {
     displayBooks();
 }
 
+if (localStorage.getItem('book') === null) {
+    myLibrary = [];
+} else {
+    myLibrary = JSON.parse(localStorage.getItem('book'));
+}
+
 function displayBooks() {
+    localStorage.setItem('book', JSON.stringify(myLibrary));
     const tableBody = document.querySelector('.table-body');
     /*Emptying the textContent of tableBody avoids the table to 
     duplicate itself everytime the add book button is pressed.*/
