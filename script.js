@@ -101,6 +101,7 @@ function displayBooks() {
         tableRow.appendChild(bookStatus);
         bookStatus.classList.add('book-status');
     }
+    hideTableIfEmpty();
 }
 
 const bookForm = document.querySelector('.book-form');
@@ -210,6 +211,15 @@ function deleteBook(e) {
     const tr = target.parentNode.parentNode.rowIndex - 1;
     myLibrary.splice(tr, 1);
     displayBooks();
+}
+
+function hideTableIfEmpty() {
+    let table = document.querySelector('table');
+    if (myLibrary.length === 0 || localStorage.getItem('book') === null) {
+        table.style.display = "none";
+    } else {
+        table.style.display = 'table';
+    }
 }
 
 displayBooks();
