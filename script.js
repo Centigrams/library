@@ -55,7 +55,7 @@ function displayBooks() {
         tableRow.appendChild(deleteButton);
         deleteButton.classList.add('delete-button-cell');
 
-        function addDeleteButton() {
+        const addDeleteButton = function () {
             const button = document.createElement('img');
             button.src = "Images/delete-button.png";
             deleteButton.appendChild(button);
@@ -69,7 +69,7 @@ function displayBooks() {
         tableRow.appendChild(editButton);
         editButton.classList.add('edit-button-cell');
 
-        function addEditButton() {
+        const addEditButton = function () {
             const img = document.createElement('img');
             img.src = 'Images/edit-button-colored.png';
             editButton.appendChild(img);
