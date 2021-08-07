@@ -160,6 +160,7 @@ function addBookInput() {
         displayBooks();
         bookForm.reset();
         changeStatusMessage();
+        changeButtonText();
     } else {
         //If all inputs are missing, don't do anything
         if (bookTitleInput.value === "") return;
@@ -209,6 +210,7 @@ function editBookInfo(e) {
         }
     }
     matchBookStatusToSwitch();
+    changeButtonText();
 
     /* The tableRowToEdit variable will be used when the book 
     is in edit mode(refer to addBookInput function). It returns 
@@ -216,6 +218,15 @@ function editBookInfo(e) {
     row in the table.*/
 
     tableRowToEdit = tr;
+}
+
+function changeButtonText() {
+    const addBookButton = document.querySelector('.add-cancel')
+    if (editMode === true) {
+        addBookButton.textContent = 'Save';
+    } else {
+        addBookButton.textContent = 'Add book';
+    }
 }
 
 function deleteBook(e) {
