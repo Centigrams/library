@@ -292,3 +292,11 @@ th, td {
 .book-title {
     max-width: 39.6875em;
 }
+
+.highlighted {
+    color: #66FCF1;
+}
+
+.no-highlight {
+    color: whitesmoke;
+}
