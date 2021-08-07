@@ -23,7 +23,7 @@ let myLibrary = [
 
 function Book(title, author, pages, read) {
     return {
-    title, author, pages, read
+        title, author, pages, read
     }
 }
 
@@ -54,13 +54,12 @@ function displayBooks() {
         tableRow.appendChild(deleteButton);
         deleteButton.classList.add('delete-button-cell');
 
-        const addDeleteButton = function () {
+        const addDeleteButton = () => {
             const button = document.createElement('img');
             button.src = "Images/delete-button.png";
             deleteButton.appendChild(button);
             button.classList.add('delete-button');
         }
-
         addDeleteButton();
 
         // Edit Button
@@ -68,7 +67,7 @@ function displayBooks() {
         tableRow.appendChild(editButton);
         editButton.classList.add('edit-button-cell');
 
-        const addEditButton = function () {
+        const addEditButton = () => {
             const img = document.createElement('img');
             img.src = 'Images/edit-button-colored.png';
             editButton.appendChild(img);
@@ -99,6 +98,21 @@ function displayBooks() {
         bookStatus.textContent = myLibrary[book].read;
         tableRow.appendChild(bookStatus);
         bookStatus.classList.add('book-status');
+
+        const highlightIfRead = () => {
+            if (bookStatus.textContent === 'Read') {
+                bookTitle.setAttribute('class', 'highlighted');
+                bookAuthor.setAttribute('class', 'highlighted');
+                bookPages.setAttribute('class', 'highlighted');
+                bookStatus.setAttribute('class', 'highlighted');
+            } else {
+                bookTitle.setAttribute('class', 'no-highlight');
+                bookAuthor.setAttribute('class', 'no-highlight');
+                bookPages.setAttribute('class', 'no-highlight');
+                bookStatus.setAttribute('class', 'no-highlight');
+            }
+        };
+        highlightIfRead();
     }
     hideTableIfEmpty();
 }
